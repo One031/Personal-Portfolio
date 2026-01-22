@@ -66,23 +66,16 @@ export const Projects = () => {
                         <div key={idx} className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
                             style={{ animationDelay: `${(idx + 1) * 100}ms` }}>
                             {/* Image */}
-                            <div className="relative aspect-video overflow-hidden bg-muted flex items-center justify-center">
-                                {/* Blurred background (fills space nicely) */}
-                                <img
-                                    src={project.image}
-                                    alt=""
-                                    aria-hidden
-                                    className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-40"
-                                />
+                            <div className="relative aspect-video overflow-hidden bg-muted">
+                            
 
                                 {/* Main image (keeps correct aspect ratio) */}
                                 <img
                                     src={project.image}
                                     alt={project.title}
                                     className="
-            relative z-10
-            max-h-[85%] max-w-[90%]
-            object-contain
+            object-cover
+            w-full h-full
             transition-transform duration-700
             group-hover:scale-105
         "
@@ -96,7 +89,7 @@ export const Projects = () => {
                                 />
 
                                 {/* Overlay Links */}
-                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 md:group-hover:opacity-100 md:opacity-0 opacity-100 transition-opacity duration-300 z-20">
+                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 md:group-hover:opacity-100 md:opacity-0 opacity-60 transition-opacity duration-300 z-20 ">
                                     {project.link && project.link !== '#' && (
                                         <a
                                             href={project.link}
