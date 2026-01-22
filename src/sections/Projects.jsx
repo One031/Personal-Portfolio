@@ -81,7 +81,7 @@ export const Projects = () => {
                                     alt={project.title}
                                     className="
             relative z-10
-            max-h-[85%]
+            max-h-[85%] max-w-[90%]
             object-contain
             transition-transform duration-700
             group-hover:scale-105
@@ -96,23 +96,27 @@ export const Projects = () => {
                                 />
 
                                 {/* Overlay Links */}
-                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                                    >
-                                        <ArrowUpRight className="w-5 h-5" />
-                                    </a>
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                                    >
-                                        <Github className="w-5 h-5" />
-                                    </a>
+                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 md:group-hover:opacity-100 md:opacity-0 opacity-100 transition-opacity duration-300 z-20">
+                                    {project.link && project.link !== '#' && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                                        >
+                                            <ArrowUpRight className="w-5 h-5" />
+                                        </a>
+                                    )}
+                                    {project.github && (
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                                        >
+                                            <Github className="w-5 h-5" />
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 
@@ -148,16 +152,16 @@ export const Projects = () => {
                 </div>
                 {/* View All CTA */}
                 <div className="text-center mt-12 animate-fade-in animation-delay-500">
-                     <a
-                            href="https://github.com/One031?tab=repositories"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <AnimatedBorderButton>
-                                View All Projects
-                        <ArrowUpRight className="w-5 h-5" />
-                            </AnimatedBorderButton>
-                        </a>
+                    <a
+                        href="https://github.com/One031?tab=repositories"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <AnimatedBorderButton>
+                            View All Projects
+                            <ArrowUpRight className="w-5 h-5" />
+                        </AnimatedBorderButton>
+                    </a>
                 </div>
             </div>
         </section>
